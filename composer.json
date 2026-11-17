@@ -2,52 +2,59 @@
     "name": "jeffersongoncalves/filament-ccpa-risk-assessments",
     "description": "Filament plugin for laravel-ccpa-risk-assessments: CCPA risk assessments in your panel: score risks, record the reviewers' views, approve, schedule the 3-year review, mark the CPPA submission and find activities still missing one.",
     "keywords": [
+        "jeffersongoncalves",
         "laravel",
         "filament",
         "filament-plugin",
-        "filament-ccpa-risk-assessments"
+        "ccpa",
+        "cpra",
+        "risk-assessment",
+        "privacy"
     ],
     "homepage": "https://github.com/jeffersongoncalves/filament-ccpa-risk-assessments",
     "license": "MIT",
-    "type": "library",
     "authors": [
         {
-            "name": "Jefferson Simão Gonçalves",
+            "name": "Jefferson Gonçalves",
             "email": "gerson.simao.92@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.2",
-        "filament/filament": "^4.0",
+        "filament/filament": "^4.8",
+        "jeffersongoncalves/filament-plugin-core": "^2.0",
+        "jeffersongoncalves/laravel-ccpa-risk-assessments": "^1.0",
         "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
-        "orchestra/testbench": "^9.0|^10.0",
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.0",
+        "orchestra/testbench": "^10.0|^11.0",
         "pestphp/pest": "^3.0|^4.0",
-        "larastan/larastan": "^2.0|^3.0",
-        "laravel/pint": "^1.0"
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0"
     },
     "autoload": {
         "psr-4": {
-            "JeffersonGoncalves\\Filament\\CcpaRiskAssessments\\": "src/"
+            "JeffersonGoncalves\\Filament\\CcpaRiskAssessments\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "JeffersonGoncalves\\Filament\\CcpaRiskAssessments\\Tests\\": "tests/"
+            "JeffersonGoncalves\\Filament\\CcpaRiskAssessments\\Tests\\": "tests"
         }
     },
     "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",
-        "test-coverage": "vendor/bin/pest --coverage",
-        "format": "vendor/bin/pint",
-        "analyse": "vendor/bin/phpstan analyse"
+        "format": "vendor/bin/pint"
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
         }
     },
     "extra": {
